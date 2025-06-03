@@ -422,60 +422,31 @@ section .title::after {
     background: none;
 }
 
-.skills .skills-content .right .bars {
-    margin-bottom: 15px;
-}
 
-.skills .skills-content .right .info {
-    display: flex;
-    margin-bottom: 5px;
-    align-items: center;
-    justify-content: space-between;
-}
 
-.skills .skills-content .right span {
-    font-weight: 500;
-    font-size: 18px;
-}
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
 
-.skills .skills-content .right .line {
-    height: 5px;
-    width: 100%;
-    background: lightgrey;
-    position: relative;
-}
+    .skill {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.skills .skills-content .right .line::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    left: 0;
-    top: 0;
-    background: rgb(136, 55, 55);
-}
+    .skill img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 10px;
+    }
 
-.skills-content .right .html::before {
-    width: 90%;
-}
+    .skill span {
+      font-size: 14px;
+    }
 
-.skills-content .right .css::before {
-    width: 70%;
-}
-
-.skills-content .right .js::before {
-    width: 60%;
-}
-
-.skills-content .right .MongoDB::before {
-    width: 60%;
-}
-
-.skills-content .right .mysql::before {
-    width: 40%;
-}
-.skills-content .right .python::before {
-    width: 40%;
-}
 /* 
 
 /* contact section styling */
