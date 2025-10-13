@@ -87,3 +87,8 @@ document.getElementById("LoginPage").addEventListener("click", function () {
 document.getElementById("SwiftPad").addEventListener("click", () => {
     window.open("https://swift-pad.onrender.com");
 });
+
+//direct go to our currency converter
+document.getElementById("CurrencyConverter").addEventListener("click", () => {
+    window.open("https://currency-converter-gilt-chi-82.vercel.app");
+});
