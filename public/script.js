@@ -90,5 +90,6 @@ document.getElementById("SwiftPad").addEventListener("click", () => {
 
 //direct go to our currency converter
 document.getElementById("CurrencyConverter").addEventListener("click", () => {
-    window.open("https://currency-converter-gilt-chi-82.vercel.app");
+    window.open("https://currency-converter24.vercel.app");
 });
+
