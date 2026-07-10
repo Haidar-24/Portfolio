@@ -44,8 +44,8 @@ $(document).ready(function () {
 
     var typed = new Typed(".typing-2", {
         strings: ["AI Engineer & MERN Stack Developer"],
-        typeSpeed: 200,
-        backSpeed: 120,
+        typeSpeed: 100,
+        backSpeed: 60,
         loop: true,
     });
 
