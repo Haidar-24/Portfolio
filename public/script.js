@@ -37,9 +37,8 @@ $(document).ready(function () {
     // typing text animation script
     var typed = new Typed(".typing", {
         strings: ["AI Engineer & MERN Stack Developer"],
-        typeSpeed: 60,
-        backSpeed: 40,
-        backDelay : 1200,
+        typeSpeed: 100,
+        backSpeed: 60,
         loop: true,
     });
 
