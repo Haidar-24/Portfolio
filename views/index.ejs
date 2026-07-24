@@ -203,43 +203,22 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
         </div>
         <div class="column right">
             <div class="text">Message me</div>
-
-<!-- <form id="contact-form">
-  <!-- keep your existing input/textarea markup + classes exactly as is -->
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-
-  <input type="hidden" name="access_key" value="c05d131c-ccdf-4306-9a89-b82bdf88a8f3">
-  <!-- honeypot to block bots, optional but recommended -->
-  <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-
-  <button type="submit">Submit</button>
-  <span id="form-result"></span>
-</form> -->
-
-
-            <form id="contact-form">
+            <form id="messageBox">
                 <div class="fields">
                     <div class="field name">
                         <input type="text" placeholder="Name" required>
                     </div>
                     <div class="field email">
-                        <input type="email" placeholder="Email" required>
+                        <input type="email" placeholder="Email" id="email" required>
                     </div>
                 </div>
                 <div class="field">
-                    <input type="text" placeholder="Subject" required>
+                    <input type="text" placeholder="Subject" id="subject" required>
                 </div>
                 <div class="field textarea">
-                    <textarea cols="30" rows="10" placeholder="Message.." required></textarea>
+                    <textarea cols="30" rows="10" placeholder="Message.." id="msg" required></textarea>
                 </div>
-                <div class="field button">
-                    <button type="submit">Submit</button>
-                </div> 
-                
-               send button animation
-<div class="demo">
+                <div class="demo">
                     <div class="demo__drone-cont demo__drone-cont--takeoff">
                         <div class="demo__drone-cont demo__drone-cont--shift-x">
                             <div class="demo__drone-cont demo__drone-cont--landing">
@@ -289,9 +268,9 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
                         <div class="demo__text demo__text--step-4">Success</div>
                     </div>
                     <div class="demo__revert-line"></div>
-                </div> 
-</form>
-        
+                    <button type="submit" onclick="sendEmailBtn()" id="sendbtn"></button>
+                </div>
+            </form>
         </div>
         </div>
         </div>
