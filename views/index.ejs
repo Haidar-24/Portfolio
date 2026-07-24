@@ -203,7 +203,24 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
         </div>
         <div class="column right">
             <div class="text">Message me</div>
-            <form action="https://api.web3forms.com/submit" method="POST">
+
+<form id="contact-form">
+  <!-- keep your existing input/textarea markup + classes exactly as is -->
+  <input type="text" name="name" required>
+  <input type="email" name="email" required>
+  <textarea name="message" required></textarea>
+
+  <input type="hidden" name="access_key" value="c05d131c-ccdf-4306-9a89-b82bdf88a8f3">
+  <!-- honeypot to block bots, optional but recommended -->
+  <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+  <button type="submit">Submit</button>
+  <span id="form-result"></span>
+</form>
+
+
+
+           <!-- <form action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="c05d131c-ccdf-4306-9a89-b82bdf88a8f3">
                 <div class="fields">
                     <div class="field name">
@@ -221,7 +238,8 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
                 </div>
                 <div class="field button">
                     <button type="submit">Submit</button>
-                </div>
+                </div> 
+                </form>-->
                <!-- send button animation
 <div class="demo">
                     <div class="demo__drone-cont demo__drone-cont--takeoff">
@@ -275,7 +293,7 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
                     <div class="demo__revert-line"></div>
                 </div> -->
 
-            </form>
+        
         </div>
         </div>
         </div>
@@ -331,42 +349,48 @@ Whether it's crafting real-time streaming chat interfaces, optimizing backend da
         });
 
 <!-- Send Message JS Code -->
-const form = document.getElementById('form');
-const submitBtn = form.querySelector('button[type="submit"]');
+const contactForm = document.getElementById('contact-form');
+const resultEl = document.getElementById('form-result');
 
-form.addEventListener('submit', async (e) => {
+if (contactForm) {
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(form);
-    formData.append("access_key", "c05d131c-ccdf-4306-9a89-b82bdf88a8f3");
+    // simple honeypot check
+    if (contactForm.botcheck && contactForm.botcheck.checked) return;
 
-    const originalText = submitBtn.textContent;
-
-    submitBtn.textContent = "Sending...";
     submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+    resultEl.textContent = '';
+
+    const formData = new FormData(contactForm);
 
     try {
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData
-        });
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: formData
+      });
 
-        const data = await response.json();
+      const data = await response.json();
 
-        if (response.ok) {
-            alert("Success! Your message has been sent.");
-            form.reset();
-        } else {
-            alert("Error: " + data.message);
-        }
-
-    } catch (error) {
-        alert("Something went wrong. Please try again.");
+      if (response.ok && data.success) {
+        resultEl.textContent = 'Message sent successfully!';
+        contactForm.reset();
+      } else {
+        resultEl.textContent = data.message || 'Something went wrong. Try again.';
+      }
+    } catch (err) {
+      resultEl.textContent = 'Network error. Please try again.';
     } finally {
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
     }
-});
+  });
+}
     </script>
 </body>
 
