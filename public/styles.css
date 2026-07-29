@@ -338,8 +338,15 @@ section .title::after {
     background: #111;
     content: "Here's my work";
 }
-.projects .serv-content .card5{
+.projects .serv-content .card .card5{
     height : 370px;
+    width: calc(33% - 20px);
+    background: #800080;
+    text-align: center;
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .projects .serv-content .card {
@@ -402,7 +409,7 @@ section .title::after {
     background-position: center;
 }
 
-.card4{
+.card4, .card3{
     margin-top: 20px;
     
 }
